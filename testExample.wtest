@@ -1,9 +1,19 @@
-import example.pepita
+import example.*
 
-describe "group of tests for pepita" {
-
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+describe "Test universidad" {
+    const unahur = new Universidad(provincia="Bs.As",honorarios=15000)
+    const rosario = new Universidad(provincia="Santa fe",honorarios=12000)
+    const asociado1 = new AsociadoAUniversidad(universidad=unahur)
+    const asociado2 = new AsociadoAUniversidad(universidad=rosario)
+  test "Asociado a Unahur" {
+    assert.equals(15000, asociado1.honorarios())
+    assert.equals(["Bs.As"], asociado1.puedeTrabajar())
   }
 
+  test "Asociado a Rosario" {
+    assert.equals(12000, asociado2.honorarios())
+    assert.equals(["Santa Fe"], asociado2.puedeTrabajar())
+  }
 }
+
+
